@@ -187,17 +187,47 @@
     });
   }
 
-  function setupMute() {
-    document.querySelectorAll("[data-ks-mute]").forEach(function (btn) {
-      var v = firstVideo();
-      var use = btn.querySelector("use");
-      btn.addEventListener("click", function (e) {
-        e.stopPropagation();
-        if (!v) return;
-        v.muted = !v.muted;
-        if (use) use.setAttribute("href", v.muted ? "#i-volume-off" : "#i-volume-on");
-      });
+  // Browsers only autoplay muted video, so sound starts on the participant's first tap,
+  // the way it would already be on inside the real app.
+  function setupSound() {
+    var v = firstVideo();
+    if (!v) return;
+    var host = v.closest(".yti-player") || v.closest(".screen");
+    var btn = document.createElement("button");
+    btn.type = "button";
+    btn.className = "ks-sound";
+    host.appendChild(btn);
+
+    var pending = true;
+    function render() {
+      btn.classList.toggle("is-muted", v.muted);
+      btn.setAttribute("aria-label", v.muted ? "Unmute" : "Mute");
+      btn.innerHTML = '<svg class="icon" viewBox="0 0 24 24">' + ICONS[v.muted ? "volume-off" : "volume-on"] + "</svg>" +
+        (v.muted ? "<span>Tap to unmute</span>" : "");
+    }
+    function setMuted(m) {
+      v.muted = m;
+      if (!m) {
+        v.volume = 1;
+        if (v.paused) { var p = v.play(); if (p && p.catch) p.catch(function () {}); }
+      }
+      render();
+    }
+
+    btn.addEventListener("click", function (e) {
+      e.stopPropagation();
+      pending = false;
+      setMuted(!v.muted);
     });
+    document.addEventListener("click", function (e) {
+      if (!pending) return;
+      pending = false;
+      if (!v.muted) return;
+      setMuted(false);
+      // The first tap on the video turns sound on instead of pausing it.
+      if (e.target.closest("[data-ks-tap-pause]")) e.stopPropagation();
+    }, true);
+    render();
   }
 
   function setupProgress() {
@@ -275,7 +305,7 @@
   applyLinks();
   setupVideos();
   setupTapToPause();
-  setupMute();
+  setupSound();
   setupProgress();
   setupToggles();
   setupDelayedCta();
