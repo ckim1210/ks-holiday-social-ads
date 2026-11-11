@@ -71,9 +71,28 @@
       return '<symbol id="i-' + k + '" viewBox="0 0 24 24">' + ICONS[k] + "</symbol>";
     }).join("");
     var holder = document.createElement("div");
-    holder.style.display = "none";
-    holder.innerHTML = '<svg xmlns="http://www.w3.org/2000/svg">' + symbols + "</svg>";
+    holder.setAttribute("aria-hidden", "true");
+    // Not display:none. Firefox will not paint <use> icons that point into a display:none sprite.
+    holder.style.cssText = "position:absolute;width:0;height:0;overflow:hidden";
+    holder.innerHTML = '<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">' + symbols + "</svg>";
     document.body.insertBefore(holder, document.body.firstChild);
+  }
+
+  // Copy each icon's shapes into the SVG. Firefox often drops <use href> references,
+  // which leaves the rails and nav looking empty.
+  function hydrateIcons(root) {
+    (root || document).querySelectorAll("svg.icon").forEach(function (svg) {
+      var use = svg.querySelector("use");
+      if (!use) return;
+      var id = (use.getAttribute("href") || use.getAttribute("xlink:href") || "").replace(/^#/, "");
+      var symbol = id && document.getElementById(id);
+      if (!symbol) return;
+      svg.setAttribute("viewBox", symbol.getAttribute("viewBox") || "0 0 24 24");
+      Array.prototype.forEach.call(symbol.childNodes, function (node) {
+        svg.appendChild(node.cloneNode(true));
+      });
+      svg.removeChild(use);
+    });
   }
 
   function get(path) {
@@ -133,6 +152,7 @@
       v.setAttribute("muted", "");
       if (poster) v.poster = poster;
       v.addEventListener("error", function () { media.classList.add("is-fallback"); });
+      v.addEventListener("loadeddata", function () { media.classList.remove("is-fallback"); });
       v.src = src;
       if (!v.hasAttribute("data-ks-manual")) {
         var p = v.play();
@@ -237,10 +257,24 @@
   function fitDevice() {
     var device = document.querySelector(".device");
     if (!device) return;
+    var W = 414, H = 868;
+    function reset() {
+      device.style.transform = "";
+      device.style.marginTop = "";
+      device.style.marginBottom = "";
+      device.style.marginLeft = "";
+      device.style.marginRight = "";
+    }
     function fit() {
-      if (window.innerWidth <= 520) { device.style.zoom = ""; return; }
-      var scale = Math.min(1, (window.innerHeight - 32) / 868);
-      device.style.zoom = scale < 1 ? String(scale) : "";
+      // CSS zoom hides video and SVG icons in some Firefox versions, so scale with transform.
+      if (window.innerWidth <= 520) { reset(); return; }
+      var scale = Math.min(1, (window.innerHeight - 32) / H);
+      if (scale >= 0.999) { reset(); return; }
+      device.style.transformOrigin = "top center";
+      device.style.transform = "scale(" + scale + ")";
+      device.style.marginBottom = ((scale - 1) * H) + "px";
+      device.style.marginLeft = ((scale - 1) * W / 2) + "px";
+      device.style.marginRight = ((scale - 1) * W / 2) + "px";
     }
     fit();
     window.addEventListener("resize", fit);
@@ -256,6 +290,7 @@
   setupProgress();
   setupToggles();
   setupDelayedCta();
+  hydrateIcons();
   fitDevice();
 
   window.KS = { config: CFG, formatCount: formatCount };
