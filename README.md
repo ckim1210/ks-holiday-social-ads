@@ -35,7 +35,7 @@ The index of all four is https://ks-holiday-social-ads.surge.sh/
 
 ## Swap in the campaign video
 
-1. Export two cuts of the campaign video as H.264 MP4 files (they autoplay muted, so no audio track is needed):
+1. Export two cuts of the campaign video as H.264 MP4 files (include the audio track; the prototype tries to play with sound and falls back to muted plus "Tap to unmute" when the browser blocks it):
    - **Vertical 9:16**, for example 1080×1920. Used by TikTok, Reels and Shorts.
    - **Landscape 16:9**, for example 1920×1080. Used by the YouTube pre-roll.
 2. Copy them into `assets/video/`.
@@ -58,7 +58,7 @@ For the pre-roll, set `instream.adLength` to the real ad length in seconds and `
 
 ## Change where taps go
 
-`siteUrl` in `config.js` (default `https://www.katespade.com/content/holiday-campaign`) is used by every CTA, profile, avatar, caption and advertiser link, which open in a new tab. The address is not written into the link, so the browser status bar does not show it before the click. Add UTM parameters there if you need to attribute clicks, for example `https://www.katespade.com/content/holiday-campaign?utm_source=uxr&utm_medium=tiktok-mock`.
+`siteUrl` in `config.js` (default `https://www.katespade.com/content/holiday-campaign`) is used by every CTA, profile, avatar, caption and advertiser link, which open in the same tab. The address is not written into the link, so the browser status bar does not show it before the click. Add UTM parameters there if you need to attribute clicks, for example `https://www.katespade.com/content/holiday-campaign?utm_source=uxr&utm_medium=tiktok-mock`.
 
 Brand handle, domain, headline, caption, hashtags, CTA label and the music line are also set in `config.js`.
 

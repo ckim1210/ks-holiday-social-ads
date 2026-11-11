@@ -121,7 +121,7 @@
     function openSite(e) {
       e.preventDefault();
       e.stopPropagation();
-      window.open(url, "_blank", "noopener,noreferrer");
+      window.location.href = url;
     }
     document.querySelectorAll("[data-ks-link]").forEach(function (a) {
       // No href, so the browser status bar does not reveal the destination.
@@ -145,6 +145,20 @@
     return d;
   }
 
+  // Most browsers refuse autoplay with sound until the visitor has interacted
+  // with the site, so fall back to muted playback rather than a frozen frame.
+  function playWithSound(v) {
+    v.muted = false;
+    v.volume = 1;
+    var p = v.play();
+    if (!p || !p.catch) return;
+    p.catch(function () {
+      v.muted = true;
+      var q = v.play();
+      if (q && q.catch) q.catch(function () {});
+    });
+  }
+
   function setupVideos() {
     document.querySelectorAll("video[data-ks-video]").forEach(function (v) {
       var kind = v.getAttribute("data-ks-video");
@@ -155,19 +169,14 @@
       var poster = get("video." + kind + "Poster");
       if (!src) { media.classList.add("is-fallback"); return; }
 
-      v.muted = true;
       v.loop = v.hasAttribute("data-ks-noloop") ? false : true;
       v.playsInline = true;
       v.setAttribute("playsinline", "");
-      v.setAttribute("muted", "");
       if (poster) v.poster = poster;
       v.addEventListener("error", function () { media.classList.add("is-fallback"); });
       v.addEventListener("loadeddata", function () { media.classList.remove("is-fallback"); });
       if (v.getAttribute("src") !== src) v.src = src;
-      if (!v.hasAttribute("data-ks-manual")) {
-        var p = v.play();
-        if (p && p.catch) p.catch(function () {});
-      }
+      if (!v.hasAttribute("data-ks-manual")) playWithSound(v);
     });
   }
 
@@ -187,8 +196,7 @@
     });
   }
 
-  // Browsers only autoplay muted video, so sound starts on the participant's first tap,
-  // the way it would already be on inside the real app.
+  // When the browser forced muted playback, sound starts on the participant's first tap.
   function setupSound() {
     var v = firstVideo();
     if (!v) return;
@@ -219,6 +227,7 @@
       pending = false;
       setMuted(!v.muted);
     });
+    v.addEventListener("volumechange", render);
     document.addEventListener("click", function (e) {
       if (!pending) return;
       pending = false;

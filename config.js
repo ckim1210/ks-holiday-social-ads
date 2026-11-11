@@ -1,7 +1,7 @@
 /*
  * Kate Spade social ad prototype — the one file to edit.
  *
- * - siteUrl: where every CTA, profile and "visit site" tap goes (opens in a new tab).
+ * - siteUrl: where every CTA, profile and "visit site" tap goes (opens in the same tab).
  *   Add UTM parameters here if the study needs click attribution.
  * - video: swap the placeholder files for the real campaign assets.
  *   "vertical" (9:16) is used by TikTok, Instagram Reels and YouTube Shorts.
