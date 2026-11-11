@@ -16,12 +16,12 @@ Hosted on GitHub Pages. Send each participant only the link for their platform.
 
 | Platform | Link |
 | --- | --- |
-| TikTok | https://ckim1210.github.io/ks-holiday-social-ads/tiktok.html |
-| Instagram Reels | https://ckim1210.github.io/ks-holiday-social-ads/instagram.html |
-| YouTube Shorts | https://ckim1210.github.io/ks-holiday-social-ads/youtube-shorts.html |
-| YouTube pre-roll | https://ckim1210.github.io/ks-holiday-social-ads/youtube-instream.html |
+| TikTok | https://ks-holiday-social-ads.surge.sh/tiktok.html |
+| Instagram Reels | https://ks-holiday-social-ads.surge.sh/instagram.html |
+| YouTube Shorts | https://ks-holiday-social-ads.surge.sh/youtube-shorts.html |
+| YouTube pre-roll | https://ks-holiday-social-ads.surge.sh/youtube-instream.html |
 
-The index of all four is https://ckim1210.github.io/ks-holiday-social-ads/
+The index of all four is https://ks-holiday-social-ads.surge.sh/
 
 ## Files
 
