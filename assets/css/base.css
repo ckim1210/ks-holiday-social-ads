@@ -1,0 +1,170 @@
+*,
+*::before,
+*::after { box-sizing: border-box; }
+
+html, body { margin: 0; height: 100%; }
+
+body {
+  font-family: -apple-system, BlinkMacSystemFont, "SF Pro Text", "Segoe UI", Roboto, Arimo, "Helvetica Neue", Arial, sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -webkit-tap-highlight-color: transparent;
+  background: radial-gradient(circle at 20% 10%, #fbe3ea 0, transparent 45%),
+              radial-gradient(circle at 85% 90%, #e7f1ec 0, transparent 40%),
+              #f6f1ee;
+  color: #1a1a1a;
+}
+
+a { color: inherit; text-decoration: none; }
+button { font: inherit; color: inherit; background: none; border: 0; padding: 0; cursor: pointer; }
+
+.icon { width: 24px; height: 24px; display: block; fill: currentColor; flex: none; }
+
+/* ---------- Desktop stage ---------- */
+
+.stage {
+  min-height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 56px;
+  padding: 24px;
+}
+
+.stage-aside { width: 280px; flex: none; }
+.stage-aside .eyebrow {
+  font-size: 11px; letter-spacing: .16em; text-transform: uppercase; color: #a3354f; font-weight: 700;
+}
+.stage-aside h1 {
+  font-family: "Tinos", "Times New Roman", Georgia, serif;
+  font-weight: 400; font-size: 34px; line-height: 1.1; margin: 8px 0 12px;
+}
+.stage-aside p { font-size: 14px; line-height: 1.55; color: #555; margin: 0 0 16px; }
+.stage-aside nav { display: flex; flex-direction: column; gap: 6px; margin-top: 24px; }
+.stage-aside nav a {
+  display: flex; align-items: center; justify-content: space-between;
+  font-size: 14px; padding: 10px 14px; border-radius: 10px; background: rgba(255,255,255,.7);
+  border: 1px solid rgba(0,0,0,.06);
+}
+.stage-aside nav a[aria-current="page"] { background: #1a1a1a; color: #fff; }
+.stage-aside nav a.back { background: transparent; border-color: transparent; padding-left: 0; color: #a3354f; font-weight: 600; }
+
+@media (max-width: 900px) { .stage-aside { display: none; } }
+
+/* ---------- Phone frame ---------- */
+
+.device {
+  --safe-top: 47px;
+  --safe-bottom: 34px;
+  position: relative;
+  flex: none;
+  width: 414px;
+  height: 868px;
+  padding: 12px;
+  border-radius: 64px;
+  background: #0d0d0d;
+  box-shadow:
+    inset 0 0 0 2px #2b2b2b,
+    inset 0 0 0 5px #0d0d0d,
+    0 40px 80px -20px rgba(60, 20, 30, .35),
+    0 12px 30px rgba(0,0,0,.18);
+}
+
+.screen {
+  position: relative;
+  width: 390px;
+  height: 844px;
+  border-radius: 52px;
+  overflow: hidden;
+  background: #000;
+  isolation: isolate;
+}
+
+.island {
+  position: absolute; top: 11px; left: 50%; transform: translateX(-50%);
+  width: 122px; height: 35px; border-radius: 20px; background: #000; z-index: 100;
+  pointer-events: none;
+}
+
+.statusbar {
+  position: absolute; inset: 0 0 auto 0; height: var(--safe-top); z-index: 99;
+  display: flex; align-items: center; justify-content: space-between;
+  padding: 4px 30px 0 44px; color: #fff; pointer-events: none;
+  font-size: 16px; font-weight: 600; letter-spacing: -.01em;
+}
+.statusbar.is-dark { color: #000; }
+.statusbar .sb-right { display: flex; gap: 6px; align-items: center; }
+.statusbar .sb-right .icon { width: 18px; height: 18px; }
+.statusbar .battery {
+  width: 26px; height: 13px; border-radius: 4px; border: 1.5px solid currentColor; opacity: .95;
+  position: relative; padding: 1.5px;
+}
+.statusbar .battery::before { content: ""; display: block; height: 100%; width: 78%; background: currentColor; border-radius: 1.5px; }
+.statusbar .battery::after {
+  content: ""; position: absolute; right: -4px; top: 3px; width: 2px; height: 4px; border-radius: 0 2px 2px 0; background: currentColor; opacity: .5;
+}
+
+.home-indicator {
+  position: absolute; bottom: 8px; left: 50%; transform: translateX(-50%);
+  width: 134px; height: 5px; border-radius: 3px; background: #fff; z-index: 99; pointer-events: none;
+}
+.home-indicator.is-dark { background: #000; }
+
+/* ---------- Real phone: go full-screen ---------- */
+
+@media (max-width: 520px) {
+  .stage { padding: 0; display: block; min-height: 0; }
+  .device {
+    --safe-top: env(safe-area-inset-top, 0px);
+    --safe-bottom: env(safe-area-inset-bottom, 0px);
+    width: 100vw; height: 100vh; height: 100dvh;
+    padding: 0; border-radius: 0; box-shadow: none; zoom: 1 !important;
+  }
+  .screen { width: 100%; height: 100%; border-radius: 0; }
+  .island, .statusbar, .home-indicator { display: none; }
+  body { background: #000; overflow: hidden; }
+}
+
+/* ---------- Video + fallback placeholder ---------- */
+
+.media {
+  position: absolute; inset: 0; background: #1a0a0f; overflow: hidden;
+}
+.media video {
+  width: 100%; height: 100%; object-fit: cover; display: block;
+}
+.ks-fallback {
+  display: none; position: absolute; inset: 0;
+  background: linear-gradient(160deg, #e4002b, #f7a1b5 45%, #8e0a26);
+  background-size: 200% 200%;
+  animation: ks-shift 6s ease-in-out infinite alternate;
+  color: #fff; text-align: center;
+  flex-direction: column; align-items: center; justify-content: center; gap: 6px;
+}
+.ks-fallback .wordmark { font-family: "Tinos", "Times New Roman", Georgia, serif; font-weight: 700; font-size: 44px; letter-spacing: -.01em; }
+.ks-fallback .sub { font-family: "Tinos", Georgia, serif; font-size: 15px; letter-spacing: .12em; }
+.ks-fallback .tag { margin-top: 18px; font-weight: 700; color: #fff3c4; letter-spacing: .06em; }
+.ks-fallback .note { position: absolute; bottom: 12%; font-size: 11px; opacity: .75; }
+.media.is-fallback video { display: none; }
+.media.is-fallback .ks-fallback { display: flex; }
+@keyframes ks-shift { from { background-position: 0% 0%; } to { background-position: 100% 100%; } }
+
+.pause-indicator {
+  position: absolute; left: 50%; top: 50%; transform: translate(-50%, -50%) scale(.8);
+  width: 72px; height: 72px; opacity: 0; transition: opacity .15s, transform .15s; pointer-events: none;
+  color: rgba(255,255,255,.85); z-index: 5;
+}
+.pause-indicator .icon { width: 100%; height: 100%; filter: drop-shadow(0 2px 8px rgba(0,0,0,.35)); }
+.is-paused .pause-indicator { opacity: 1; transform: translate(-50%, -50%) scale(1); }
+
+/* ---------- Shared brand avatar (text-only, no logo image) ---------- */
+
+.ks-avatar {
+  display: grid; place-items: center; border-radius: 50%; flex: none;
+  background: #fff; color: #111;
+  font-family: "Tinos", "Times New Roman", Georgia, serif; font-weight: 700; letter-spacing: -.04em;
+}
+.ks-avatar span { transform: translateY(-1px); }
+
+.verified { width: 14px; height: 14px; color: #20d5ec; display: inline-block; vertical-align: -2px; }
+
+.text-shadow { text-shadow: 0 1px 2px rgba(0,0,0,.35); }

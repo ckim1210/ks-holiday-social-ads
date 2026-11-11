@@ -1,0 +1,81 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <meta name="theme-color" content="#0f0f0f">
+  <link rel="icon" href="data:,">
+  <title>YouTube Shorts ad · Kate Spade holiday prototype</title>
+  <link rel="stylesheet" href="assets/css/base.css">
+  <link rel="stylesheet" href="assets/css/youtube.css">
+</head>
+<body>
+  <main class="stage">
+    <aside class="stage-aside">
+      <div class="eyebrow">Kate Spade · Holiday UXR</div>
+      <h1>YouTube Shorts ad</h1>
+      <p>A sponsored Short between organic Shorts: title, channel row, Sponsored badge with the advertiser domain, action rail, and a CTA button that turns blue after three seconds.</p>
+      <p>Tap the video to pause. The channel, title and "Shop now" open the Kate Spade site in a new tab.</p>
+      <nav data-ks-nav></nav>
+    </aside>
+
+    <div class="device">
+      <div class="screen yt yts" data-ks-pause-host>
+        <div class="media">
+          <video data-ks-video="vertical" autoplay muted loop playsinline></video>
+        </div>
+        <div class="tap" data-ks-tap-pause></div>
+        <div class="pause-indicator"><svg class="icon"><use href="#i-play"/></svg></div>
+
+        <header class="yts-top text-shadow">
+          <svg class="icon"><use href="#i-back"/></svg>
+          <div class="right">
+            <svg class="icon"><use href="#i-search"/></svg>
+            <svg class="icon"><use href="#i-camera"/></svg>
+            <svg class="icon"><use href="#i-dots-v"/></svg>
+          </div>
+        </header>
+
+        <div class="yts-rail text-shadow">
+          <button class="yts-act" data-ks-toggle aria-label="Like"><b><svg class="icon"><use href="#i-thumb-up"/></svg></b><span data-count data-raw="12480">12.4K</span></button>
+          <button class="yts-act" data-ks-toggle aria-label="Dislike"><b><svg class="icon"><use href="#i-thumb-down"/></svg></b><span>Dislike</span></button>
+          <button class="yts-act" aria-label="Comments"><b><svg class="icon"><use href="#i-chat"/></svg></b><span>214</span></button>
+          <button class="yts-act" aria-label="Share"><b><svg class="icon"><use href="#i-share-yt"/></svg></b><span>Share</span></button>
+          <button class="yts-act" aria-label="Remix"><b><svg class="icon"><use href="#i-remix"/></svg></b><span>Remix</span></button>
+          <a class="yts-audio" data-ks-link aria-label="Audio">ks</a>
+        </div>
+
+        <div class="yts-info text-shadow">
+          <a class="yts-channel" data-ks-link>
+            <span class="ks-avatar"><span>ks</span></span>
+            <span>@<span data-ks-text="brand.handle">katespadeny</span></span>
+          </a>
+          <a data-ks-link><p class="yts-title"><span data-ks-text="copy.headline"></span>: <span data-ks-text="copy.caption"></span></p></a>
+          <div class="yts-sponsor">
+            <span class="badge">Sponsored</span>
+            <span class="dom" data-ks-text="brand.domain">katespade.com</span>
+            <svg class="icon"><use href="#i-info"/></svg>
+          </div>
+          <a class="yts-cta" data-ks-link data-ks-cta-delay="3">
+            <span data-ks-text="copy.cta">Shop now</span>
+            <svg class="icon"><use href="#i-external"/></svg>
+          </a>
+        </div>
+
+        <div class="yts-progress"><i data-ks-progress></i></div>
+
+        <nav class="yt-nav">
+          <span><svg class="icon"><use href="#i-home-outline"/></svg>Home</span>
+          <span><svg class="icon"><use href="#i-shorts"/></svg>Shorts</span>
+          <span><i class="create"><svg class="icon"><use href="#i-plus"/></svg></i></span>
+          <span><svg class="icon"><use href="#i-subs"/></svg>Subscriptions</span>
+          <span><i class="me"></i>You</span>
+        </nav>
+      </div>
+    </div>
+  </main>
+
+  <script src="config.js"></script>
+  <script src="assets/js/app.js"></script>
+</body>
+</html>

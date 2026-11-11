@@ -1,0 +1,86 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <meta name="theme-color" content="#000000">
+  <link rel="icon" href="data:,">
+  <title>TikTok in-feed ad · Kate Spade holiday prototype</title>
+  <link rel="stylesheet" href="assets/css/base.css">
+  <link rel="stylesheet" href="assets/css/tiktok.css">
+</head>
+<body>
+  <main class="stage">
+    <aside class="stage-aside">
+      <div class="eyebrow">Kate Spade · Holiday UXR</div>
+      <h1>TikTok For You in-feed ad</h1>
+      <p>Full-screen vertical video in the For You feed with a Sponsored label, caption, promoted music line, side action rail and a "Shop now" button that fills TikTok red after three seconds.</p>
+      <p>Tap the video to pause. The avatar, name, caption and CTA open the Kate Spade site in a new tab.</p>
+      <nav data-ks-nav></nav>
+    </aside>
+
+    <div class="device">
+      <div class="screen tt" data-ks-pause-host>
+        <div class="media">
+          <video data-ks-video="vertical" autoplay muted loop playsinline></video>
+        </div>
+        <div class="tt-tap" data-ks-tap-pause></div>
+        <div class="pause-indicator"><svg class="icon"><use href="#i-play"/></svg></div>
+
+        <header class="tt-top text-shadow">
+          <span class="tt-live">LIVE</span>
+          <div class="tt-tabs"><span>Following</span><span class="is-active">For You</span></div>
+          <svg class="icon"><use href="#i-search"/></svg>
+        </header>
+
+        <div class="tt-rail text-shadow">
+          <a class="tt-avatar" data-ks-link aria-label="Open Kate Spade profile">
+            <div class="ks-avatar"><span>ks</span></div>
+            <span class="follow"><svg class="icon"><use href="#i-plus"/></svg></span>
+          </a>
+          <button class="tt-act" data-ks-toggle aria-label="Like">
+            <svg class="icon"><use href="#i-heart"/></svg><span data-count data-raw="48213">48.2K</span>
+          </button>
+          <button class="tt-act" aria-label="Comments">
+            <svg class="icon"><use href="#i-bubble-dots"/></svg><span>1,204</span>
+          </button>
+          <button class="tt-act save" data-ks-toggle aria-label="Save">
+            <svg class="icon"><use href="#i-bookmark"/></svg><span data-count data-raw="3981">3,981</span>
+          </button>
+          <button class="tt-act" aria-label="Share">
+            <svg class="icon"><use href="#i-share-arrow"/></svg><span>2,310</span>
+          </button>
+          <a class="tt-disc" data-ks-link aria-label="Promoted music"><div class="ks-avatar"><span>ks</span></div></a>
+        </div>
+
+        <div class="tt-info text-shadow">
+          <a class="tt-name" data-ks-link><span data-ks-text="brand.handle">katespadeny</span></a>
+          <a data-ks-link><p class="tt-caption" data-ks-caption></p></a>
+          <div class="tt-sponsored"><span>Sponsored</span></div>
+          <div class="tt-music">
+            <svg class="icon"><use href="#i-music"/></svg>
+            <div class="marquee"><span data-ks-text="copy.music"></span><span data-ks-text="copy.music"></span></div>
+          </div>
+          <a class="tt-cta" data-ks-link data-ks-cta-delay="3">
+            <span data-ks-text="copy.cta">Shop now</span>
+            <svg class="icon"><use href="#i-chevron-right"/></svg>
+          </a>
+        </div>
+
+        <div class="tt-progress"><i data-ks-progress></i></div>
+
+        <nav class="tt-nav">
+          <span class="is-active"><svg class="icon"><use href="#i-home"/></svg>Home</span>
+          <span><svg class="icon"><use href="#i-friends"/></svg>Friends</span>
+          <span class="tt-create"><b><svg class="icon"><use href="#i-plus"/></svg></b></span>
+          <span class="tt-inbox"><svg class="icon"><use href="#i-inbox"/></svg>Inbox<em>9</em></span>
+          <span><svg class="icon"><use href="#i-user"/></svg>Profile</span>
+        </nav>
+      </div>
+    </div>
+  </main>
+
+  <script src="config.js"></script>
+  <script src="assets/js/app.js"></script>
+</body>
+</html>

@@ -1,0 +1,82 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <meta name="theme-color" content="#000000">
+  <link rel="icon" href="data:,">
+  <title>Instagram Reels ad · Kate Spade holiday prototype</title>
+  <link rel="stylesheet" href="assets/css/base.css">
+  <link rel="stylesheet" href="assets/css/instagram.css">
+</head>
+<body>
+  <main class="stage">
+    <aside class="stage-aside">
+      <div class="eyebrow">Kate Spade · Holiday UXR</div>
+      <h1>Instagram Reels ad</h1>
+      <p>A sponsored Reel in the Reels tab: account row with Sponsored label, caption, audio line, action rail and the CTA bar that turns Instagram blue after three seconds.</p>
+      <p>Tap the video to pause. The profile, caption and "Shop now" bar open the Kate Spade site in a new tab.</p>
+      <nav data-ks-nav></nav>
+    </aside>
+
+    <div class="device">
+      <div class="screen ig" data-ks-pause-host>
+        <div class="media">
+          <video data-ks-video="vertical" autoplay muted loop playsinline></video>
+        </div>
+        <div class="tap" data-ks-tap-pause></div>
+        <div class="pause-indicator"><svg class="icon"><use href="#i-play"/></svg></div>
+
+        <header class="ig-top text-shadow">
+          <h2>Reels <svg class="icon"><use href="#i-chevron-down"/></svg></h2>
+          <svg class="icon"><use href="#i-camera"/></svg>
+        </header>
+
+        <div class="ig-rail text-shadow">
+          <button class="ig-act" data-ks-toggle aria-label="Like">
+            <svg class="icon heart-line"><use href="#i-heart-outline"/></svg>
+            <svg class="icon heart-fill"><use href="#i-heart"/></svg>
+            <span data-count data-raw="27406">27.4K</span>
+          </button>
+          <button class="ig-act" aria-label="Comment"><svg class="icon"><use href="#i-comment-outline"/></svg><span>318</span></button>
+          <button class="ig-act" aria-label="Share"><svg class="icon"><use href="#i-send"/></svg><span>1,092</span></button>
+          <button class="ig-act" aria-label="More"><svg class="icon"><use href="#i-dots-h"/></svg></button>
+          <a class="ig-audio" data-ks-link aria-label="Audio">ks</a>
+        </div>
+
+        <div class="ig-info text-shadow">
+          <div class="ig-who">
+            <a data-ks-link class="ks-avatar"><span>ks</span></a>
+            <a data-ks-link class="names">
+              <b data-ks-text="brand.handle">katespadeny</b>
+              <small>Sponsored</small>
+            </a>
+            <button class="ig-follow" data-ks-toggle data-on-label="Following">Follow</button>
+          </div>
+          <a data-ks-link><p class="ig-caption" data-ks-caption></p></a>
+          <div class="ig-meta">
+            <span><svg class="icon"><use href="#i-music"/></svg><span data-ks-text="brand.handle"></span>&nbsp;· Original audio</span>
+          </div>
+          <a class="ig-cta" data-ks-link data-ks-cta-delay="3">
+            <span data-ks-text="copy.cta">Shop now</span>
+            <svg class="icon"><use href="#i-chevron-right"/></svg>
+          </a>
+        </div>
+
+        <div class="ig-progress"><i data-ks-progress></i></div>
+
+        <nav class="ig-nav">
+          <svg class="icon"><use href="#i-home-outline"/></svg>
+          <svg class="icon"><use href="#i-reels"/></svg>
+          <svg class="icon"><use href="#i-send"/></svg>
+          <svg class="icon"><use href="#i-search"/></svg>
+          <span class="me"></span>
+        </nav>
+      </div>
+    </div>
+  </main>
+
+  <script src="config.js"></script>
+  <script src="assets/js/app.js"></script>
+</body>
+</html>

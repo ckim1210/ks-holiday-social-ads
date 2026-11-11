@@ -1,0 +1,119 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <meta name="theme-color" content="#ffffff">
+  <link rel="icon" href="data:,">
+  <title>YouTube in-stream ad · Kate Spade holiday prototype</title>
+  <link rel="stylesheet" href="assets/css/base.css">
+  <link rel="stylesheet" href="assets/css/youtube.css">
+</head>
+<body>
+  <main class="stage">
+    <aside class="stage-aside">
+      <div class="eyebrow">Kate Spade · Holiday UXR</div>
+      <h1>YouTube in-stream (pre-roll) ad</h1>
+      <p>A skippable pre-roll on the watch page before a holiday gift-guide video. The skip button counts down, then lets the viewer skip; the companion banner below the player stays visible with a "Shop now" button.</p>
+      <p>The advertiser chip, companion banner and "Shop now" open the Kate Spade site in a new tab. <a href="youtube-instream.html" style="color:#a3354f;font-weight:600">Replay the ad</a></p>
+      <nav data-ks-nav></nav>
+    </aside>
+
+    <div class="device">
+      <div class="screen yt yti" data-light-ui>
+        <div class="scroll">
+          <div class="yti-player" id="player" data-ks-pause-host>
+            <div class="media">
+              <video data-ks-video="landscape" autoplay muted loop playsinline></video>
+            </div>
+            <div class="tap" data-ks-tap-pause></div>
+            <div class="pause-indicator" style="width:52px;height:52px"><svg class="icon"><use href="#i-play"/></svg></div>
+
+            <div class="content-video">
+              <b>Video starts here</b>
+              <span>Holiday Gift Guide 2026</span>
+            </div>
+
+            <div class="ad-ui">
+              <a class="ad-visit" data-ks-link>
+                <span class="ks-avatar"><span>ks</span></span>
+                <span data-ks-text="brand.domain">katespade.com</span>
+                <svg class="icon"><use href="#i-external"/></svg>
+              </a>
+              <div class="ad-top">
+                <svg class="icon"><use href="#i-info"/></svg>
+              </div>
+              <div class="ad-meta">
+                <span class="badge">Sponsored</span>
+                <span>1 of 1 · <span id="ad-remaining">0:15</span></span>
+              </div>
+              <button class="skip" id="skip" type="button" aria-live="polite">
+                <span id="skip-label">5</span><span class="thumb"></span>
+                <svg class="icon"><use href="#i-skip"/></svg>
+              </button>
+              <div class="ad-progress"><i id="ad-bar"></i></div>
+            </div>
+
+            <div class="content-ui">
+              <span class="time" id="content-time">0:00 / 18:42</span>
+              <span class="full"><svg class="icon"><use href="#i-fullscreen"/></svg></span>
+              <div class="cbar"><i id="content-bar"></i></div>
+            </div>
+          </div>
+
+          <a class="companion" id="companion" data-ks-link>
+            <span class="ks-avatar"><span>ks</span></span>
+            <span class="txt">
+              <b><span data-ks-text="copy.headline">The Holiday Shop</span> by kate spade</b>
+              <small><span class="badge">Sponsored</span> · <span data-ks-text="brand.domain">katespade.com</span></small>
+            </span>
+            <span class="btn" data-ks-text="copy.cta">Shop now</span>
+          </a>
+
+          <section class="watch">
+            <h3>Holiday Gift Guide 2026: 30 gifts they'll actually love (every budget)</h3>
+            <div class="stats">248K views · 3 days ago <b>...more</b></div>
+          </section>
+          <div class="chan">
+            <span class="av"></span>
+            <b>The Wrap Edit</b><small>812K</small>
+            <button class="sub" data-ks-toggle data-on-label="Subscribed">Subscribe</button>
+          </div>
+          <div class="pills">
+            <span class="split"><span><svg class="icon"><use href="#i-thumb-up-outline"/></svg>9.1K</span><span><svg class="icon"><use href="#i-thumb-down-outline"/></svg></span></span>
+            <span><svg class="icon"><use href="#i-share-outline"/></svg>Share</span>
+            <span><svg class="icon"><use href="#i-remix"/></svg>Remix</span>
+            <span><svg class="icon"><use href="#i-bookmark-outline"/></svg>Save</span>
+          </div>
+          <div class="comments-peek">
+            <b>Comments</b> 1.2K
+            <p><i></i>Saving this for my secret santa list, thank you!!</p>
+          </div>
+          <div class="next">
+            <div class="card">
+              <div class="thumb" style="background:linear-gradient(135deg,#d7e3dc,#8fb3a1)"><em>14:05</em></div>
+              <div class="row"><span class="av" style="background:#9bb0c4"></span><div><b>Wrapping 20 gifts in 20 minutes</b><small>Studio Paper · 96K views · 1 week ago</small></div></div>
+            </div>
+            <div class="card">
+              <div class="thumb" style="background:linear-gradient(135deg,#f0dcc8,#c28e6a)"><em>9:32</em></div>
+              <div class="row"><span class="av" style="background:#c9a07a"></span><div><b>Stocking stuffers under $50</b><small>The Wrap Edit · 431K views · 1 year ago</small></div></div>
+            </div>
+          </div>
+        </div>
+
+        <nav class="yt-nav is-light">
+          <span><svg class="icon"><use href="#i-home"/></svg>Home</span>
+          <span><svg class="icon"><use href="#i-shorts"/></svg>Shorts</span>
+          <span><i class="create"><svg class="icon"><use href="#i-plus"/></svg></i></span>
+          <span><svg class="icon"><use href="#i-subs"/></svg>Subscriptions</span>
+          <span><i class="me"></i>You</span>
+        </nav>
+      </div>
+    </div>
+  </main>
+
+  <script src="config.js"></script>
+  <script src="assets/js/app.js"></script>
+  <script src="assets/js/instream.js"></script>
+</body>
+</html>
