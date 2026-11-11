@@ -58,7 +58,7 @@ For the pre-roll, set `instream.adLength` to the real ad length in seconds and `
 
 ## Change where taps go
 
-`siteUrl` in `config.js` (default `https://www.katespade.com/content/holiday-campaign`) is used by every CTA, profile, avatar, caption and advertiser link, which open in a new tab. Add UTM parameters there if you need to attribute clicks, for example `https://www.katespade.com/content/holiday-campaign?utm_source=uxr&utm_medium=tiktok-mock`.
+`siteUrl` in `config.js` (default `https://www.katespade.com/content/holiday-campaign`) is used by every CTA, profile, avatar, caption and advertiser link, which open in a new tab. The address is not written into the link, so the browser status bar does not show it before the click. Add UTM parameters there if you need to attribute clicks, for example `https://www.katespade.com/content/holiday-campaign?utm_source=uxr&utm_medium=tiktok-mock`.
 
 Brand handle, domain, headline, caption, hashtags, CTA label and the music line are also set in `config.js`.
 

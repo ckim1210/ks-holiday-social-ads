@@ -118,11 +118,21 @@
 
   function applyLinks() {
     var url = CFG.siteUrl || "https://www.katespade.com/content/holiday-campaign";
+    function openSite(e) {
+      e.preventDefault();
+      e.stopPropagation();
+      window.open(url, "_blank", "noopener,noreferrer");
+    }
     document.querySelectorAll("[data-ks-link]").forEach(function (a) {
-      a.setAttribute("href", url);
-      a.setAttribute("target", "_blank");
-      a.setAttribute("rel", "noopener");
-      a.addEventListener("click", function (e) { e.stopPropagation(); });
+      // No href, so the browser status bar does not reveal the destination.
+      a.removeAttribute("href");
+      a.setAttribute("role", "link");
+      a.tabIndex = 0;
+      a.style.cursor = "pointer";
+      a.addEventListener("click", openSite);
+      a.addEventListener("keydown", function (e) {
+        if (e.key === "Enter" || e.key === " ") openSite(e);
+      });
     });
   }
 
