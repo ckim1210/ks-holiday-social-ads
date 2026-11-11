@@ -6,8 +6,8 @@
   <meta name="theme-color" content="#ffffff">
   <link rel="icon" href="data:,">
   <title>YouTube in-stream ad · Kate Spade holiday prototype</title>
-  <link rel="stylesheet" href="assets/css/base.css">
-  <link rel="stylesheet" href="assets/css/youtube.css">
+  <link rel="stylesheet" href="assets/css/base.css?v=5">
+  <link rel="stylesheet" href="assets/css/youtube.css?v=5">
 </head>
 <body>
   <main class="stage">
@@ -16,10 +16,10 @@
         <div class="scroll">
           <div class="yti-player" id="player" data-ks-pause-host>
             <div class="media">
-              <video data-ks-video="landscape" poster="assets/video/placeholder-landscape.jpg" autoplay muted loop playsinline></video>
+              <video data-ks-video="landscape" src="assets/video/placeholder-landscape.mp4?v=5" poster="assets/video/placeholder-landscape.jpg?v=5" width="720" height="720" autoplay muted loop playsinline></video>
             </div>
             <div class="tap" data-ks-tap-pause></div>
-            <div class="pause-indicator" style="width:52px;height:52px"><svg class="icon"><use href="#i-play"/></svg></div>
+            <div class="pause-indicator" style="width:52px;height:52px"><svg class="icon" viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg></div>
 
             <div class="content-video">
               <b>Video starts here</b>
@@ -30,10 +30,10 @@
               <a class="ad-visit" data-ks-link>
                 <span class="ks-avatar"><span>ks</span></span>
                 <span data-ks-text="brand.domain">katespade.com</span>
-                <svg class="icon"><use href="#i-external"/></svg>
+                <svg class="icon" viewBox="0 0 24 24"><path d="M14 3h7v7h-2V6.41l-9.29 9.3-1.42-1.42 9.3-9.29H14V3zM5 5h5v2H5v12h12v-5h2v5a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V7a2 2 0 0 1 2-2z"/></svg>
               </a>
               <div class="ad-top">
-                <svg class="icon"><use href="#i-info"/></svg>
+                <svg class="icon" viewBox="0 0 24 24"><path d="M11 7h2v2h-2zm0 4h2v6h-2zm1-9C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm0 18c-4.41 0-8-3.59-8-8s3.59-8 8-8 8 3.59 8 8-3.59 8-8 8z"/></svg>
               </div>
               <div class="ad-meta">
                 <span class="badge">Sponsored</span>
@@ -41,14 +41,14 @@
               </div>
               <button class="skip" id="skip" type="button" aria-live="polite">
                 <span id="skip-label">5</span><span class="thumb"></span>
-                <svg class="icon"><use href="#i-skip"/></svg>
+                <svg class="icon" viewBox="0 0 24 24"><path d="M6 18l8.5-6L6 6v12zM16 6v12h2V6h-2z"/></svg>
               </button>
               <div class="ad-progress"><i id="ad-bar"></i></div>
             </div>
 
             <div class="content-ui">
               <span class="time" id="content-time">0:00 / 18:42</span>
-              <span class="full"><svg class="icon"><use href="#i-fullscreen"/></svg></span>
+              <span class="full"><svg class="icon" viewBox="0 0 24 24"><path d="M7 14H5v5h5v-2H7v-3zm-2-4h2V7h3V5H5v5zm12 7h-3v2h5v-5h-2v3zM14 5v2h3v3h2V5h-5z"/></svg></span>
               <div class="cbar"><i id="content-bar"></i></div>
             </div>
           </div>
@@ -72,10 +72,10 @@
             <button class="sub" data-ks-toggle data-on-label="Subscribed">Subscribe</button>
           </div>
           <div class="pills">
-            <span class="split"><span><svg class="icon"><use href="#i-thumb-up-outline"/></svg>9.1K</span><span><svg class="icon"><use href="#i-thumb-down-outline"/></svg></span></span>
-            <span><svg class="icon"><use href="#i-share-outline"/></svg>Share</span>
-            <span><svg class="icon"><use href="#i-remix"/></svg>Remix</span>
-            <span><svg class="icon"><use href="#i-bookmark-outline"/></svg>Save</span>
+            <span class="split"><span><svg class="icon" viewBox="0 0 24 24"><path fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.8" d="M7 10v10H3V10zM7 10l4.5-7c1.6 0 2.6 1.2 2.3 2.8L13.2 9H19a2 2 0 0 1 2 2.3l-1.2 7A2 2 0 0 1 17.8 20H7"/></svg>9.1K</span><span><svg class="icon" viewBox="0 0 24 24"><path fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.8" d="M17 14V4h4v10zM17 14l-4.5 7c-1.6 0-2.6-1.2-2.3-2.8l.6-3.2H5a2 2 0 0 1-2-2.3l1.2-7A2 2 0 0 1 6.2 4H17"/></svg></span></span>
+            <span><svg class="icon" viewBox="0 0 24 24"><path fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.8" d="M14 8.6V5l6.5 6.7L14 18.3v-3.5c-5 0-8.2 1.4-10.5 4.7 1-5 4-9.6 10.5-10.9z"/></svg>Share</span>
+            <span><svg class="icon" viewBox="0 0 24 24"><path d="M12 4V1L8 5l4 4V6c3.31 0 6 2.69 6 6 0 1.01-.25 1.97-.7 2.8l1.46 1.46C19.54 15.03 20 13.57 20 12c0-4.42-3.58-8-8-8zm0 14c-3.31 0-6-2.69-6-6 0-1.01.25-1.97.7-2.8L5.24 7.74C4.46 8.97 4 10.43 4 12c0 4.42 3.58 8 8 8v3l4-4-4-4v3z"/></svg>Remix</span>
+            <span><svg class="icon" viewBox="0 0 24 24"><path fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" d="M6.5 3h11a.5.5 0 0 1 .5.5V21l-6-4-6 4V3.5a.5.5 0 0 1 .5-.5z"/></svg>Save</span>
           </div>
           <div class="comments-peek">
             <b>Comments</b> 1.2K
@@ -94,18 +94,18 @@
         </div>
 
         <nav class="yt-nav is-light">
-          <span><svg class="icon"><use href="#i-home"/></svg>Home</span>
-          <span><svg class="icon"><use href="#i-shorts"/></svg>Shorts</span>
-          <span><i class="create"><svg class="icon"><use href="#i-plus"/></svg></i></span>
-          <span><svg class="icon"><use href="#i-subs"/></svg>Subscriptions</span>
+          <span><svg class="icon" viewBox="0 0 24 24"><path d="M12 2.8l9.5 8.3h-2.8v9.6h-5.2v-6.2h-3v6.2H5.3v-9.6H2.5z"/></svg>Home</span>
+          <span><svg class="icon" viewBox="0 0 24 24"><path fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.8" d="M15.6 2.9l-8.3 4.4a4.1 4.1 0 0 0 .3 7.4l-.6.3a4.1 4.1 0 1 0 3.9 7.2l8.3-4.4a4.1 4.1 0 0 0-.3-7.4l.6-.3a4.1 4.1 0 1 0-3.9-7.2z"/><path d="M10 9.2v5.6l4.8-2.8z"/></svg>Shorts</span>
+          <span><i class="create"><svg class="icon" viewBox="0 0 24 24"><path fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" stroke-width="2.6" d="M12 5v14M5 12h14"/></svg></i></span>
+          <span><svg class="icon" viewBox="0 0 24 24"><rect fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.8" x="3" y="8" width="18" height="13" rx="2"/><path fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.8" d="M6 5h12M8.5 2.5h7"/><path d="M10 11.5v6l5-3z"/></svg>Subscriptions</span>
           <span><i class="me"></i>You</span>
         </nav>
       </div>
     </div>
   </main>
 
-  <script src="config.js"></script>
-  <script src="assets/js/app.js"></script>
-  <script src="assets/js/instream.js"></script>
+  <script src="config.js?v=5"></script>
+  <script src="assets/js/app.js?v=5"></script>
+  <script src="assets/js/instream.js?v=5"></script>
 </body>
 </html>

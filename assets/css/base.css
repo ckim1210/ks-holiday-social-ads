@@ -2,7 +2,7 @@
 *::before,
 *::after { box-sizing: border-box; }
 
-html, body { margin: 0; height: 100%; }
+html, body { margin: 0; min-height: 100%; }
 
 body {
   font-family: -apple-system, BlinkMacSystemFont, "SF Pro Text", "Segoe UI", Roboto, Arimo, "Helvetica Neue", Arial, sans-serif;
@@ -54,10 +54,9 @@ button { font: inherit; color: inherit; background: none; border: 0; padding: 0;
   width: 390px;
   height: 844px;
   border-radius: 52px;
-  background: #000;
-  /* clip-path, not overflow:hidden. Firefox often fails to paint a video
-     inside an ancestor that combines overflow:hidden with border-radius. */
-  clip-path: inset(0 round 52px);
+  background: transparent;
+  /* No overflow or clip-path here. Firefox leaves video and SVG icons blank
+     when an ancestor clips them. */
 }
 
 .island {
@@ -100,7 +99,8 @@ button { font: inherit; color: inherit; background: none; border: 0; padding: 0;
     width: 100vw; height: 100vh; height: 100dvh;
     padding: 0; border-radius: 0; box-shadow: none;
   }
-  .screen { width: 100%; height: 100%; border-radius: 0; clip-path: none; }
+  .screen { width: 100%; height: 100%; }
+  .screen, .media, .media video { border-radius: 0; }
   .island, .statusbar, .home-indicator { display: none; }
   body { background: #000; overflow: hidden; }
 }
@@ -108,12 +108,21 @@ button { font: inherit; color: inherit; background: none; border: 0; padding: 0;
 /* ---------- Video + fallback placeholder ---------- */
 
 .media {
-  position: absolute; inset: 0; background: #1a0a0f; overflow: hidden;
+  position: absolute;
+  top: 0; right: 0; bottom: 0; left: 0;
+  border-radius: 52px;
+  background: linear-gradient(160deg, #e4002b, #f7a1b5 45%, #8e0a26);
 }
 .media video {
-  width: 100%; height: 100%; object-fit: cover; display: block;
-  background: #e4002b;
+  position: absolute;
+  top: 0; left: 0;
+  width: 100%; height: 100%;
+  object-fit: cover;
+  display: block;
+  border-radius: 52px;
+  background: transparent;
 }
+.tt-nav, .ig-nav, .yt-nav { border-radius: 0 0 46px 46px; }
 .ks-fallback {
   display: none; position: absolute; inset: 0;
   background: linear-gradient(160deg, #e4002b, #f7a1b5 45%, #8e0a26);

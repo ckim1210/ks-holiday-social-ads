@@ -12,10 +12,10 @@ window.KS_CONFIG = {
   siteUrl: "https://www.katespade.com/content/holiday-campaign",
 
   video: {
-    vertical: "assets/video/placeholder-vertical.mp4",
-    verticalPoster: "assets/video/placeholder-vertical.jpg",
-    landscape: "assets/video/placeholder-landscape.mp4",
-    landscapePoster: "assets/video/placeholder-landscape.jpg"
+    vertical: "assets/video/placeholder-vertical.mp4?v=5",
+    verticalPoster: "assets/video/placeholder-vertical.jpg?v=5",
+    landscape: "assets/video/placeholder-landscape.mp4?v=5",
+    landscapePoster: "assets/video/placeholder-landscape.jpg?v=5"
   },
 
   brand: {

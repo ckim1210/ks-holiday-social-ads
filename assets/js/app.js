@@ -153,7 +153,7 @@
       if (poster) v.poster = poster;
       v.addEventListener("error", function () { media.classList.add("is-fallback"); });
       v.addEventListener("loadeddata", function () { media.classList.remove("is-fallback"); });
-      v.src = src;
+      if (v.getAttribute("src") !== src) v.src = src;
       if (!v.hasAttribute("data-ks-manual")) {
         var p = v.play();
         if (p && p.catch) p.catch(function () {});
@@ -255,29 +255,8 @@
   }
 
   function fitDevice() {
-    var device = document.querySelector(".device");
-    if (!device) return;
-    var W = 414, H = 868;
-    function reset() {
-      device.style.transform = "";
-      device.style.marginTop = "";
-      device.style.marginBottom = "";
-      device.style.marginLeft = "";
-      device.style.marginRight = "";
-    }
-    function fit() {
-      // CSS zoom hides video and SVG icons in some Firefox versions, so scale with transform.
-      if (window.innerWidth <= 520) { reset(); return; }
-      var scale = Math.min(1, (window.innerHeight - 32) / H);
-      if (scale >= 0.999) { reset(); return; }
-      device.style.transformOrigin = "top center";
-      device.style.transform = "scale(" + scale + ")";
-      device.style.marginBottom = ((scale - 1) * H) + "px";
-      device.style.marginLeft = ((scale - 1) * W / 2) + "px";
-      device.style.marginRight = ((scale - 1) * W / 2) + "px";
-    }
-    fit();
-    window.addEventListener("resize", fit);
+    /* Intentionally empty. Scaling the phone with zoom or transform makes
+       Firefox skip painting the video and the icons. The page scrolls instead. */
   }
 
   injectSprite();
