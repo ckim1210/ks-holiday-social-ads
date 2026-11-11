@@ -30,26 +30,6 @@ button { font: inherit; color: inherit; background: none; border: 0; padding: 0;
   padding: 24px;
 }
 
-.stage-aside { width: 280px; flex: none; }
-.stage-aside .eyebrow {
-  font-size: 11px; letter-spacing: .16em; text-transform: uppercase; color: #a3354f; font-weight: 700;
-}
-.stage-aside h1 {
-  font-family: "Tinos", "Times New Roman", Georgia, serif;
-  font-weight: 400; font-size: 34px; line-height: 1.1; margin: 8px 0 12px;
-}
-.stage-aside p { font-size: 14px; line-height: 1.55; color: #555; margin: 0 0 16px; }
-.stage-aside nav { display: flex; flex-direction: column; gap: 6px; margin-top: 24px; }
-.stage-aside nav a {
-  display: flex; align-items: center; justify-content: space-between;
-  font-size: 14px; padding: 10px 14px; border-radius: 10px; background: rgba(255,255,255,.7);
-  border: 1px solid rgba(0,0,0,.06);
-}
-.stage-aside nav a[aria-current="page"] { background: #1a1a1a; color: #fff; }
-.stage-aside nav a.back { background: transparent; border-color: transparent; padding-left: 0; color: #a3354f; font-weight: 600; }
-
-@media (max-width: 900px) { .stage-aside { display: none; } }
-
 /* ---------- Phone frame ---------- */
 
 .device {
