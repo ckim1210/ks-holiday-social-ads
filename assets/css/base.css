@@ -123,6 +123,7 @@ button { font: inherit; color: inherit; background: none; border: 0; padding: 0;
   border-radius: 52px;
   background: transparent;
 }
+.media::before, .media::after { border-radius: inherit; }
 .tt-nav, .ig-nav, .yt-nav { border-radius: 0 0 52px 52px; }
 .yti-player, .ks-fallback { border-radius: 52px 52px 0 0; }
 .ks-fallback { border-radius: 52px; }
